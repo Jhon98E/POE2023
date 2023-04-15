@@ -23,53 +23,55 @@ function App() {
   
   return (
     <div className="App">
-      <Container>
-        <Form>
-          <Row>
+      <div class="Container">
+        <div class="Form">
+        <h3>Calculadora</h3>
+          <div class="row">
 
-            <Col>
+            <div class="col">
 
               <Form.Group className="mb-3">
-                <h3>Calculadora</h3>
                 <Form.Text className="text-muted"># Ingrese dos numeros</Form.Text>
                 <br></br>
                 <Form.Label>Numero 1</Form.Label>
-                <Form.Control onChange={handleChange} name="numero 1" type="numero" placeholder="Ingrese el numero 1" />
+                <Form.Control onChange={handleChange} name="numero 1" type="numero" placeholder="Ingrese el numero 1"></Form.Control>
               </Form.Group>
 
               <Form.Group className="mb-3" >
-                <Form.Label>Password</Form.Label>
-                <Form.Control onChange={handleChange} name="numero 2" type="numero" placeholder="Ingrese el numero 2" />
+                <Form.Label>Numero 2</Form.Label>
+                <Form.Control onChange={handleChange} name="numero 2" type="numero" placeholder="Ingrese el numero 2"></Form.Control>
               </Form.Group>
 
-            </Col>
+              <Button>Realizar Operacion</Button>
 
-            <Col>
-              <Form.Group className="mb-3" >
-                <Form.Label>Suma</Form.Label>
-                <Form.Control onChange={handleChange} name="Suma" type="resultado" placeholder="Suma" />
-              </Form.Group>
+            </div>
 
+            <div class="col">
               <Form.Group className="mb-3" >
                 <Form.Label>Suma</Form.Label>
-                <Form.Control onChange={handleChange} name="Resta" type="resultado" placeholder="Resta" />
+                <Form.Control onChange={handleChange} name="Suma" type="resultado" placeholder="Suma"></Form.Control>
               </Form.Group>
 
               <Form.Group className="mb-3" >
-                <Form.Label>Suma</Form.Label>
-                <Form.Control onChange={handleChange} name="Multiplicacion" type="resultado" placeholder="Multiplicacion" />
+                <Form.Label>Resta</Form.Label>
+                <Form.Control onChange={handleChange} name="Resta" type="resultado" placeholder="Resta"></Form.Control>
               </Form.Group>
 
               <Form.Group className="mb-3" >
-                <Form.Label>Suma</Form.Label>
-                <Form.Control onChange={handleChange} name="Division" type="resultado" placeholder="Division" />
+                <Form.Label>Multiplicacion</Form.Label>
+                <Form.Control onChange={handleChange} name="Multiplicacion" type="resultado" placeholder="Multiplicacion"></Form.Control>
               </Form.Group>
 
-            </Col>
+              <Form.Group className="mb-3" >
+                <Form.Label>Division</Form.Label>
+                <Form.Control onChange={handleChange} name="Division" type="resultado" placeholder="Division"></Form.Control>
+              </Form.Group>
 
-          </Row>
-        </Form>
-      </Container>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
