@@ -43,10 +43,13 @@ function App() {
             Submit
           </Button>
 
-          <Row>
-            
-            <Col>
+          <br></br>
+          <br></br>
 
+          <h3>CALCULADORA</h3>
+
+          <Row>            
+            <Col>
               <Form.Group>
                 <Form.Label>NUMERO 1</Form.Label>
                 <Form.Control placeholder="Ingrese un Numero"></Form.Control>
@@ -61,11 +64,9 @@ function App() {
                 <Form.Label>RESULTADO</Form.Label>
                 <Form.Control placeholder=""></Form.Control>
               </Form.Group>
-
             </Col>
 
             <Col>
-
               <Form.Group>
                 <Form.Label>SUMA</Form.Label>
                 <Form.Control placeholder="+"></Form.Control>
@@ -85,11 +86,8 @@ function App() {
                 <Form.Label>DIVISION</Form.Label>
                 <Form.Control placeholder="/"></Form.Control>
               </Form.Group>
-
             </Col>
-
           </Row>
-
         </Form>
       </Container>
     </div>
