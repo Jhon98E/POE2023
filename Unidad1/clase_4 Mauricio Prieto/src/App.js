@@ -1,30 +1,54 @@
 import './App.scss';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Col';
-import Col from 'react-bootstrap/Row';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Container } from 'react-bootstrap';
-import { useState } from 'react';
 
+
+function Suma(){
+  let numero1 = parseFloat(document.getElementById("numero1").value);
+  let numero2 = parseFloat(document.getElementById("numero2").value);
+  let resultado = numero1 + numero2;
+  document.getElementById("resultadoSuma").value = resultado
+}
+
+function Resta(){
+  let numero1 = parseFloat(document.getElementById("numero1").value);
+  let numero2 = parseFloat(document.getElementById("numero2").value);
+  let resultado = numero1 - numero2;
+  document.getElementById("resultadoResta").value = resultado
+}
+
+function Multiplicacion(){
+  let numero1 = parseFloat(document.getElementById("numero1").value);
+  let numero2 = parseFloat(document.getElementById("numero2").value);
+  let resultado = numero1 * numero2;
+  document.getElementById("resultadoMultiplicacion").value = resultado
+}
+
+function Division(){
+  let numero1 = parseFloat(document.getElementById("numero1").value);
+  let numero2 = parseFloat(document.getElementById("numero2").value);
+  let resultado = numero1 / numero2;
+  document.getElementById("resultadoDivision").value = resultado
+}
+
+function realizarOperaciones(){
+  Suma();
+  Resta();
+  Multiplicacion();
+  Division();
+}
+
+function Limpiar(){
+  document.getElementById("formulario").reset()
+}
 
 function App() {
 
-  const [formulario, setFormulario] = useState({
-    email: '',
-    password: ''
-  });
-
-  const handleChange = (event) => {
-    const temporal = {...formulario}
-    temporal[event.target.name] = event.target.value
-    setFormulario(temporal)
-  }
-  
   return (
     <div className="App">
-      <div class="Container">
-        <div class="Form">
+      <div class="container">
+        <form id="formulario">
         <h3>Calculadora</h3>
           <div class="row">
 
@@ -34,43 +58,45 @@ function App() {
                 <Form.Text className="text-muted"># Ingrese dos numeros</Form.Text>
                 <br></br>
                 <Form.Label>Numero 1</Form.Label>
-                <Form.Control onChange={handleChange} name="numero 1" type="numero" placeholder="Ingrese el numero 1"></Form.Control>
+                <Form.Control id="numero1" placeholder="Ingrese el numero 1"></Form.Control>
               </Form.Group>
 
               <Form.Group className="mb-3" >
                 <Form.Label>Numero 2</Form.Label>
-                <Form.Control onChange={handleChange} name="numero 2" type="numero" placeholder="Ingrese el numero 2"></Form.Control>
+                <Form.Control id="numero2" placeholder="Ingrese el numero 2"></Form.Control>
               </Form.Group>
 
-              <Button>Realizar Operacion</Button>
+              <Button className='mb-3' onClick={realizarOperaciones}>Realizar Operaciones</Button>
+              <br></br>
+              <Button className='mb-3'onClick={Limpiar}>Limpiar </Button>
 
             </div>
 
             <div class="col">
               <Form.Group className="mb-3" >
                 <Form.Label>Suma</Form.Label>
-                <Form.Control onChange={handleChange} name="Suma" type="resultado" placeholder="Suma"></Form.Control>
+                <Form.Control id="resultadoSuma" placeholder="Resultado Suma" readOnly></Form.Control>
               </Form.Group>
 
               <Form.Group className="mb-3" >
                 <Form.Label>Resta</Form.Label>
-                <Form.Control onChange={handleChange} name="Resta" type="resultado" placeholder="Resta"></Form.Control>
+                <Form.Control id="resultadoResta" placeholder="Resultado Resta" readOnly></Form.Control>
               </Form.Group>
 
               <Form.Group className="mb-3" >
                 <Form.Label>Multiplicacion</Form.Label>
-                <Form.Control onChange={handleChange} name="Multiplicacion" type="resultado" placeholder="Multiplicacion"></Form.Control>
+                <Form.Control id="resultadoMultiplicacion" placeholder="Resultado Multiplicacion" readOnly></Form.Control>
               </Form.Group>
 
               <Form.Group className="mb-3" >
                 <Form.Label>Division</Form.Label>
-                <Form.Control onChange={handleChange} name="Division" type="resultado" placeholder="Division"></Form.Control>
+                <Form.Control id="resultadoDivision" placeholder="Resultado Division" readOnly></Form.Control>
               </Form.Group>
 
             </div>
 
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
