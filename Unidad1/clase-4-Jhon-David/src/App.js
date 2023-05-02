@@ -25,29 +25,7 @@ function App() {
     <div className="App">
       <Container>
         <Form>
-          <Form.Group>
-            <Form.Label>Email address</Form.Label>
-            <Form.Control onchange={handleChange} name="email" type="email" placeholder="Enter email" />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
-
-          <Form.Group>
-            <Form.Label>Password</Form.Label>
-            <Form.Control onchange={handleChange} name="password" type="password" placeholder="Password" />
-          </Form.Group>
-          {formulario.email}
-          {formulario.password}
-          <Button>
-            Submit
-          </Button>
-
-          <br></br>
-          <br></br>
-
           <h3>CALCULADORA</h3>
-
           <Row>            
             <Col>
               <Form.Group>
