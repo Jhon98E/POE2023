@@ -1,4 +1,5 @@
 import logging
+import time
 
 class Serializador:
     def __init__(self, archivo):

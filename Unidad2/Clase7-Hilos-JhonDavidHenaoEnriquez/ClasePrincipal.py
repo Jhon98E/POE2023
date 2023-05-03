@@ -5,5 +5,9 @@ from Serializador import Serializador
 logging.basicConfig(level=logging.DEBUG)
 
 serializador = Serializador("serial.txt")
-watcher = Comparador(serializador)
-watcher.start()
+comparador = Comparador(serializador)
+comparador.start()
+
+while True:
+    variable_string = input("Ingrese una cadena de texto: ")
+    comparador.setVariableString(variable_string)
