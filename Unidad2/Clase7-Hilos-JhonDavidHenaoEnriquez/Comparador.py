@@ -19,3 +19,4 @@ class Comparador(threading.Thread):
         while True:            
             self.serializador.serializar(self.variable_string)
             time.sleep(2)
+
