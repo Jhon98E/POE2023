@@ -33,11 +33,11 @@ class Serializar:
     
     def serializar(self, variableAComparar):
         if variableAComparar== self.variablePrevia:
-            logging.debug("-Los Strings son iguales-")
+            logging.debug(f"-Los Strings son iguales-")
         elif variableAComparar != self.variablePrevia:
             with open (self.archivo, "w") as file:
-                file.write(f"{variableAComparar} \n")
-            logging.debug(f"Variable String{variableAComparar} selrializada en {self.archivo}")
+                file.write(variableAComparar + "\n")
+            logging.debug(f"Variable String{variableAComparar} serializada en {self.archivo}")
             self.variablePrevia = variableAComparar
         elif variableAComparar == "bye" or "close":
             threading.Thread = False
