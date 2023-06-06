@@ -1,9 +1,11 @@
-import './App.css';
+import './App.scss';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './servicios/clienteAxios'
+import { doRequest } from './servicios/clienteAxios.js';
+
 function App() {
 
   const [formulario, setformulario] = useState({
@@ -15,6 +17,10 @@ function App() {
     const temporal = {...formulario} //Copia el objeto quitando la referencia
     temporal[event.target.name] = event.target.value
     setformulario(temporal)
+  }
+
+  const guardarLibro = () => {
+    doRequest(formulario)
   }
 
   return (

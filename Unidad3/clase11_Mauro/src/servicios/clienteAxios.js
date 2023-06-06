@@ -2,23 +2,31 @@ import axios from "axios";
 
 const baseurl = "http://localhost:8000/api/";
 
-export const crearConfiguracion = (metodo, url, informacion) => {
-    return{
-        method: metodo,
-        url: baseurl + url,
-        data: informacion
-    }
-}
-
-export const hacerPeticion = async (informacion) => {
+export const getConfig = (method, url) => {
+    return {
+      method,
+      url: baseurl + url,
+    };
+  };
+  
+  export const getConfigData = (method, url, data) => {
+    return {
+      method,
+      url: baseurl + url,
+      data,
+    };
+  };
+  
+  export const doRequest = async (user) => {
     try {
-        const configuracion = crearConfiguracion("post", "biblioteca/", informacion)
-        const respuesta = await axios(configuracion)
-        if (respuesta == 201) {
-            console.log(respuesta)
-        }
-        return respuesta.status;
-    } catch(error) {
-        console.log(error)
+      const config = getConfigData("post", "biblioteca/", user);
+      const response = await axios(config);
+      if (response.status === 200) {
+        console.log(response.data);
+      }
+      return response.status;
+    } catch (error) {
+      console.log(error);
     }
-}
+  };
+  

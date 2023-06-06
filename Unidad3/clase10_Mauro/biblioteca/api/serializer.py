@@ -3,6 +3,6 @@ from biblioteca.models import Biblioteca
 
 class BibliotecaSerializer(ModelSerializer):
 
-    class meta:
+    class Meta:
         model = Biblioteca
         fields = ['id', 'titulo', 'resumen']
