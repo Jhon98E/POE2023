@@ -5,4 +5,4 @@ from django.db import models
 class Lugares(models.Model):
     nombre = models.CharField(max_length=50)
     pais = models.CharField(max_length=50)
-    descripcion = models.TextField()
+    descripcion = models.TextField(max_length=255)

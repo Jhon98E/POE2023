@@ -2,7 +2,7 @@ import './App.scss';
 import {Button, Form, Container, Row, Col} from 'react-bootstrap';
 import {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {guardarLugar, traerTodosLosLugares} from './servicios/clienteAxios';
+import {guardarLugar, traerTodosLosLugares, traerPorNombre, traerPorNombreYPais} from './servicios/clienteAxios';
 
 function App() {
 
@@ -12,15 +12,26 @@ function App() {
     descripcion: ''
   });
 
+  const [nombre, setNombre] = useState({
+    nombre: '',
+  });
+
+  const [pais, setPais] = useState({
+    pais: '',
+  });
+
   const [informacion, setInformacion] = useState([
     {
       "nombre": "Caicedonia",
+      "pais": "Colombia",
     },
     {
       "nombre": "Sevilla",
+      "pais": "Colombia",
     },
     {
       "nombre": "Guatape",
+      "pais": "Colombia",
     }
   ])
 
@@ -29,6 +40,18 @@ function App() {
     const temporal = {...formulario} //Copia el objeto quitando la referencia
     temporal[event.target.name] = event.target.value
     setformulario(temporal)
+  }
+
+  const handleChangeBuscarNombre = (event) => {
+    const temporal = {...nombre} //Copia el objeto quitando la referencia
+    temporal[event.target.name] = event.target.value
+    setNombre(temporal)
+  }
+
+  const handleChangeBuscarNombreYPais = (event) => {
+    const temporal = {...pais} //Copia el objeto quitando la referencia
+    temporal[event.target.name] = event.target.value
+    setPais(temporal)
   }
 
   const guardar = async() => {
@@ -45,6 +68,16 @@ function App() {
 
   const traerTodos = async() => {
     const temporal = await traerTodosLosLugares()
+    setInformacion(temporal)
+  }
+
+  const traerNombre = async() => {
+    const temporal = await traerPorNombre(nombre.nombre)
+    setInformacion(temporal)
+  }
+
+  const traerNombreYPais = async() => {
+    const temporal = await traerPorNombreYPais(nombre.nombre, pais.pais)
     setInformacion(temporal)
   }
 
@@ -79,21 +112,39 @@ function App() {
             </Col>
           </Row>
         </form>
-        <text>Lugares</text>
+        <Form.Text>Lugares</Form.Text>
         {
           informacion.map((elemento) => {
             return <Row>
               <Col>
-                Nombre
+                {elemento.nombre}
               </Col>
               <Col>
-                {elemento.nombre}
+                {elemento.pais}
               </Col>
             </Row>
           })
         }
         <Button onClick={traerTodos}>
           Traer Libros
+        </Button>
+        <Form>
+        <Form.Group className="mb-3" >
+                <Form.Label>Nombre</Form.Label>
+                <Form.Control onChange={handleChangeBuscarNombre} name="nombre" placeholder="Ingrese el nombre"></Form.Control>
+              </Form.Group>
+        </Form>
+        <Button onClick={traerNombre}>
+          Buscar por nombre
+        </Button>
+        <Form>
+        <Form.Group className="mb-3" >
+                <Form.Label>Pais</Form.Label>
+                <Form.Control onChange={handleChangeBuscarNombreYPais} name="pais" placeholder="Ingrese el pais"></Form.Control>
+              </Form.Group>
+        </Form>
+        <Button onClick={traerNombreYPais}>
+          Buscar por nombre y pais
         </Button>
       </Container>
     </div>

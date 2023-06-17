@@ -42,3 +42,29 @@ export const traerTodosLosLugares = async () => {
     console.log(error);
   }
 };
+
+export const traerPorNombre = async (nombre) => {
+  try {
+    const config = getConfigData("get", "lugares/?nombre="+nombre);
+    const response = await axios(config);
+    if (response.status === 200) {
+      console.log(response.data);
+    }
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const traerPorNombreYPais = async (nombre, pais) => {
+  try {
+    const config = getConfigData("get", "lugares/?nombre="+nombre+"&pais="+pais);
+    const response = await axios(config);
+    if (response.status === 200) {
+      console.log(response.data);
+    }
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
