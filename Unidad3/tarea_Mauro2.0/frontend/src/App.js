@@ -20,6 +20,7 @@ function App() {
     pais: '',
   });
 
+  //Valores de lugares por defecto
   const [informacion, setInformacion] = useState([
     {
       "nombre": "Caicedonia",
@@ -74,11 +75,14 @@ function App() {
   const traerNombre = async() => {
     const temporal = await traerPorNombre(nombre.nombre)
     setInformacion(temporal)
+    document.getElementById("nombre").reset()
   }
 
   const traerNombreYPais = async() => {
     const temporal = await traerPorNombreYPais(nombre.nombre, pais.pais)
     setInformacion(temporal)
+    document.getElementById("nombre").reset()
+    document.getElementById("nombreYPais").reset()
   }
 
   return (
@@ -103,7 +107,7 @@ function App() {
               </Form.Group>
               <Form.Group className="mb-3" >
                 <Form.Label>Descripcion</Form.Label>
-                <Form.Control onChange={handleChange} name="descripcion" placeholder="Ingrese una descripcion"></Form.Control>
+                <Form.Control onChange={handleChange} as="textarea" rows={3} name="descripcion" placeholder="Ingrese una descripcion"></Form.Control>
               </Form.Group>
               <Button onClick={guardar}>
                 Guardar Lugar
@@ -128,7 +132,7 @@ function App() {
         <Button onClick={traerTodos}>
           Traer Libros
         </Button>
-        <Form>
+        <Form id='nombre'>
         <Form.Group className="mb-3" >
                 <Form.Label>Nombre</Form.Label>
                 <Form.Control onChange={handleChangeBuscarNombre} name="nombre" placeholder="Ingrese el nombre"></Form.Control>
@@ -137,7 +141,7 @@ function App() {
         <Button onClick={traerNombre}>
           Buscar por nombre
         </Button>
-        <Form>
+        <Form id='nombreYPais'>
         <Form.Group className="mb-3" >
                 <Form.Label>Pais</Form.Label>
                 <Form.Control onChange={handleChangeBuscarNombreYPais} name="pais" placeholder="Ingrese el pais"></Form.Control>
