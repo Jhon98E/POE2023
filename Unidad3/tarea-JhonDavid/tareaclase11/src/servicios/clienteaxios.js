@@ -42,3 +42,29 @@ export const traerTodosLosCarros = async (informacion) => {
         console.log(error)
     }
 }
+
+export const traerTodosPorMarca = async (marca) => {
+    try {
+        const configuracion = crearConfiguracionSinInformacion("get", "carros/?marca="+marca)
+        const respuesta = await axios(configuracion)
+        if (respuesta.status === 200) {
+            console.log(respuesta)
+        }
+        return respuesta.data;
+    } catch(error) {
+        console.log(error)
+    }
+}
+
+export const traerTodosPorMarcaYModelo = async (marca, modelo) => {
+    try {
+        const configuracion = crearConfiguracionSinInformacion("get", "carros/?marca="+marca+"&modelo="+modelo)
+        const respuesta = await axios(configuracion)
+        if (respuesta.status === 200) {
+            console.log(respuesta)
+        }
+        return respuesta.data;
+    } catch(error) {
+        console.log(error)
+    }
+}

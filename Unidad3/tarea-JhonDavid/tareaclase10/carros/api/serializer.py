@@ -4,4 +4,4 @@ from carros.models import Carro
 class CarroSerializer(ModelSerializer):
     class Meta:
         model = Carro
-        fields = ['marca', 'modelo', 'fichatecnica']
+        fields = ['id', 'marca', 'modelo', 'fichatecnica']
