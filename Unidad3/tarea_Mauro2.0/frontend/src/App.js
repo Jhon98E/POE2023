@@ -25,14 +25,17 @@ function App() {
     {
       "nombre": "Caicedonia",
       "pais": "Colombia",
+      "descripcion": "Hello",
     },
     {
       "nombre": "Sevilla",
       "pais": "Colombia",
+      "descripcion": "Hiiiii",
     },
     {
       "nombre": "Guatape",
       "pais": "Colombia",
+      "descripcion":"World",
     }
   ])
 
@@ -125,6 +128,9 @@ function App() {
               </Col>
               <Col>
                 {elemento.pais}
+              </Col>
+              <Col>
+                {elemento.descripcion}
               </Col>
             </Row>
           })
