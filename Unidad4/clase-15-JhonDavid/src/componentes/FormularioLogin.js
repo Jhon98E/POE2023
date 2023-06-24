@@ -35,7 +35,7 @@ function FormularioLogin() {
 
   const iniciarSesion = () => {
     if (!!formulario.usuario && !!formulario.contrasenia) {
-      if (formulario.usuario === 'jhonenriquez') {
+      if (formulario.usuario === 'jhonenriquez' && formulario.contrasenia === 'jhon123') {
         localStorage.setItem('usuario', formulario.usuario)
         setSesion({usuario: formulario.usuario})
         setMensajes({mensaje: 'Bienvenido ' + formulario.usuario, error: false})
@@ -75,24 +75,24 @@ function FormularioLogin() {
               </Button>
             </Col>
             <Col>
-            {
-              sesion.usuario !== ''?
-							<Link to='/inicio'>
-								<Button>
-									Avanzar
-								</Button>
-							</Link>
-              :null
-            }
+              {
+                sesion.usuario !== ''?
+                <Link to='/inicio'>
+                  <Button>
+                    Avanzar
+                  </Button>
+                </Link>
+                :null
+              }
             </Col>
             <Col>
-            {
-              sesion.usuario !== ''?
-              <Button onClick={cerrarSesion} >
-                Cerrar Sesion
-              </Button>
-              :null
-            }
+              {
+                sesion.usuario !== ''?
+                <Button onClick={cerrarSesion} >
+                  Cerrar Sesion
+                </Button>
+                :null
+              }
             </Col>
           </Row>
         </Col>
