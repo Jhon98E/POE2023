@@ -13,7 +13,7 @@ function FormularioLogin() {
   });
 
   const [mensajes, setMensajes] = useState({
-    mensaje: "",
+    mensaje: "Inicie Seccion",
     error: false,
   });
 
