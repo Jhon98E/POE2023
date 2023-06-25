@@ -1,36 +1,40 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Container, Form, Button} from 'react-bootstrap'
+import { Container, Form, Button, Row, Col, Stack } from 'react-bootstrap'
 
 function App() {
   return (
-    <Container>      
+    <Container> 
       <Form>
-
-        <Form.Group>
-          <Form.Label>Nombre</Form.Label>
-          <Form.Control placeholder="Registre sus Nombres"></Form.Control>
-        </Form.Group>
-
-        <Form.Group>
-          <Form.Label>Apellido</Form.Label>
-          <Form.Control placeholder="Registre Sus Apellidos"></Form.Control>
-        </Form.Group>
-
-        <Form.Group>
-          <Form.Label>Usuario</Form.Label>
-          <Form.Control placeholder="Registre Su Usuario"></Form.Control>
-        </Form.Group>
-
-        <Form.Group>
-          <Form.Label>Contraseña</Form.Label>
-          <Form.Control placeholder="Registre su contraseña"></Form.Control>
-        </Form.Group>
-
-        <Button>
-          Registrarse
-        </Button>
-        
+      <h1>REGISTRATE</h1>
+        <p></p>
+        <Row className="justify-content-md-center">
+          <Col xs={4}>
+            <Form.Label>Nombres</Form.Label>
+            <Form.Control size='lg' placeholder="Registra Tu Nombre" ></Form.Control>
+          </Col>
+          <Col xs={4}>
+            <Form.Label>Apellidos</Form.Label>
+            <Form.Control size='lg' placeholder="Registra tu Apellido" ></Form.Control>
+          </Col>
+        </Row>
+        <p></p>
+        <Row className="justify-content-md-center">
+          <Col xs={4}>
+            <Form.Label>Usuario</Form.Label>
+            <Form.Control size='lg' placeholder="Registra tu Usuario" ></Form.Control>
+          </Col>
+          <Col xs={4}>
+            <Form.Label>Contraseña</Form.Label>
+            <Form.Control size='lg' type='Password' placeholder="Registra tu Contraseña" ></Form.Control>
+          </Col>
+        </Row>
+        <p></p>
+        <Stack className="col-md-2 mx-auto">
+          <Button size='lg' as="a" variant="dark">
+            Registrarte
+          </Button>
+        </Stack>
       </Form>
     </Container>
   );
