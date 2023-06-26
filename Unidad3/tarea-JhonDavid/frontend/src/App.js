@@ -132,7 +132,7 @@ function App() {
         </form>
 
         <Button onClick={traerTodoMarca}>
-            Buscar por Marca
+          Buscar por Marca
         </Button>
 
         <form>
@@ -145,7 +145,7 @@ function App() {
         </form>
 
         <Button onClick={traerTodoModelo}>
-            Buscar por Marca y Modelo
+          Buscar por Marca y Modelo
         </Button>
 
       </Container>
@@ -154,4 +154,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
