@@ -34,7 +34,7 @@ function PaginaDeRegistro() {
           </Col>
           <Col xs={3}>
             <Form.Label>Apellidos</Form.Label>
-            <Form.Control size='lg' onChange={handleChange} name='nombre' placeholder="Registra tu Apellido"Ñ></Form.Control>
+            <Form.Control size='lg' onChange={handleChange} name='apellido' placeholder="Registra tu Apellido"Ñ></Form.Control>
           </Col>
         </Row>
         <p></p>
